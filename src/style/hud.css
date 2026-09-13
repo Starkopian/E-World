@@ -1,0 +1,244 @@
+/* ==========================================================================
+   ACTIVE THEORY STYLE TECHNICAL HUD & VIEWPORT FRAMING
+   ========================================================================== */
+
+/* Viewport Corner Crosshairs (+) */
+.hud-corner {
+  position: fixed;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.4);
+  z-index: 1000;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hud-corner-tl { top: 14px; left: 16px; }
+.hud-corner-tr { top: 14px; right: 16px; }
+.hud-corner-bl { bottom: 14px; left: 16px; }
+.hud-corner-br { bottom: 14px; right: 16px; }
+
+/* Subtle Technical Hairline Border */
+.hud-frame-line {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  z-index: 999;
+}
+
+.hud-line-top { top: 22px; left: 36px; right: 36px; height: 1px; }
+.hud-line-bottom { bottom: 22px; left: 36px; right: 36px; height: 1px; }
+
+/* Top Header Bar */
+.at-header-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 900;
+  pointer-events: none;
+}
+
+.at-header-bar > * {
+  pointer-events: auto;
+}
+
+.at-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.at-brand-box {
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.at-brand-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.at-brand-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+}
+
+/* Center Scene Indicator */
+.at-scene-indicator {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--cyan-primary);
+  background: rgba(10, 14, 22, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+/* Top Right Actions (View Mode Switch + Audio Spectrum) */
+.at-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Dual View Mode Switcher */
+.at-mode-switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(15, 18, 26, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--chrome-border);
+  border-radius: 999px;
+  padding: 3px;
+}
+
+.at-mode-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-fluid);
+}
+
+.at-mode-btn.active {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+/* Audio Spectrum Visualizer */
+.at-audio-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 18, 26, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--chrome-border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.at-spectrum-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.at-spec-bar {
+  width: 2px;
+  height: 4px;
+  background: var(--cyan-primary);
+  border-radius: 1px;
+  transition: height 0.1s ease;
+}
+
+.at-audio-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+/* Bottom Footer Bar */
+.at-footer-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 900;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.at-footer-bar > * {
+  pointer-events: auto;
+}
+
+.at-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.at-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+}
+
+.at-footer-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.at-scrub-dot {
+  width: 24px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.at-scrub-dot.active {
+  background: var(--cyan-primary);
+  box-shadow: 0 0 8px var(--cyan-primary);
+  width: 36px;
+}
+
+.at-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 860px) {
+  .at-header-bar, .at-footer-bar {
+    padding: 0 20px;
+  }
+  .at-brand-sub, .at-footer-center, .hud-line-top, .hud-line-bottom {
+    display: none;
+  }
+}

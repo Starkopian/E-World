@@ -6,30 +6,30 @@
 
 :root {
   /* Color Palette */
-  --bg-deep-void: #050608;
-  --bg-obsidian: #090b10;
-  --bg-surface: #0e1118;
+  --bg-deep-void: #080808;
+  --bg-obsidian: #080808;
+  --bg-surface: #080808;
   --bg-surface-glass: rgba(14, 17, 24, 0.65);
   --bg-surface-glass-heavy: rgba(10, 12, 18, 0.85);
 
   /* Accents */
-  --cyan-primary: #00f0ff;
-  --cyan-glow: rgba(0, 240, 255, 0.35);
-  --emerald-smp: #00ffa3;
-  --emerald-glow: rgba(0, 255, 163, 0.35);
-  --crimson-rp: #ff3366;
-  --crimson-glow: rgba(255, 51, 102, 0.35);
-  --amber-gold: #ffb703;
-  --violet-celestial: #8a2be2;
-  --violet-glow: rgba(138, 43, 226, 0.3);
+  --cyan-primary: #efff00;
+  --cyan-glow: rgba(239, 255, 0, 0.35);
+  --emerald-smp: #efff00;
+  --emerald-glow: rgba(239, 255, 0, 0.35);
+  --crimson-rp: #efff00;
+  --crimson-glow: rgba(239, 255, 0, 0.35);
+  --amber-gold: #efff00;
+  --violet-celestial: #efff00;
+  --violet-glow: rgba(239, 255, 0, 0.3);
 
   /* Neutrals & Chrome */
   --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-secondary: #b8b8b8;
+  --text-muted: #999999;
   --chrome-highlight: #f8fafc;
   --chrome-border: rgba(255, 255, 255, 0.12);
-  --chrome-border-hover: rgba(0, 240, 255, 0.4);
+  --chrome-border-hover: rgba(239, 255, 0, 0.4);
 
   /* Typography */
   --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -66,7 +66,7 @@ html {
 body {
   position: relative;
   min-height: 100vh;
-  background: radial-gradient(circle at 50% 0%, #0d1224 0%, #050608 60%, #020305 100%);
+  background: radial-gradient(circle at 50% 0%, #080808 0%, #080808 60%, #080808 100%);
   overflow-x: hidden;
 }
 
@@ -82,7 +82,7 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 999px;
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  border: 1px solid rgba(239, 255, 0, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -110,7 +110,7 @@ body {
   height: 100vh;
   z-index: 2;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 65%);
+  background: radial-gradient(circle at 50% 30%, rgba(239, 255, 0, 0.08) 0%, transparent 65%);
   transition: background 1.2s var(--ease-fluid);
 }
 
@@ -186,8 +186,8 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--cyan-primary);
-  background: rgba(0, 240, 255, 0.08);
-  border: 1px solid rgba(0, 240, 255, 0.25);
+  background: rgba(239, 255, 0, 0.08);
+  border: 1px solid rgba(239, 255, 0, 0.25);
   padding: 0.4rem 1rem;
   border-radius: 999px;
   margin-bottom: 1.25rem;

@@ -2,46 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E-WORLD | One Community. Infinite Worlds.</title>
-  <meta name="description" content="Enter the E-World digital universe. Connect across Minecraft SMP, FiveM RP, high-stakes competitive esports, and creator events in one seamless gaming ecosystem." />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>E-WORLD · Creative Digital Realms</title>
+  <meta name="description" content="E-World is a creative digital universe blending story, technology, and gaming realms across Minecraft SMP, FiveM RP, and sanctioned esports leagues." />
+
   <!-- Favicon / SVG Icon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌌</text></svg>" />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./src/style/base.css" />
   <link rel="stylesheet" href="./src/style/components.css" />
-  <link rel="stylesheet" href="./src/style/sections.css" />
+  <link rel="stylesheet" href="./src/style/hud.css" />
+  <link rel="stylesheet" href="./src/style/universe.css" />
+  <link rel="stylesheet" href="./src/style/matrix.css" />
   <link rel="stylesheet" href="./src/style/cursor.css" />
 </head>
 <body>
-  <!-- 0. CINEMATIC PRELOADER -->
-  <div id="preloader" class="preloader">
-    <div class="preloader-core-icon">
-      <div class="preloader-ring"></div>
-      <div class="preloader-ring"></div>
-      <div class="preloader-ring"></div>
-    </div>
-    <div class="preloader-logo">E-WORLD</div>
-    <div class="preloader-status-list">
-      <div id="step-core" class="preloader-step active">
-        <span class="mono">></span> INITIALIZING E-WORLD QUANTUM CORE...
-      </div>
-      <div id="step-community" class="preloader-step">
-        <span class="mono">></span> SYNCHRONIZING COMMUNITY NETWORK [✓]
-      </div>
-      <div id="step-smp" class="preloader-step">
-        <span class="mono">></span> COMPILING SMP VOXEL TERRAIN [✓]
-      </div>
-      <div id="step-rp" class="preloader-step">
-        <span class="mono">></span> LOADING FIVEM METROPOLIS GRID [✓]
-      </div>
-      <div id="step-enter" class="preloader-step">
-        <span class="mono">></span> ENTERING THE UNIVERSE
-      </div>
-    </div>
-  </div>
+  <!-- ACTIVE THEORY TECHNICAL FRAMING CROSSHAIRS (+) -->
+  <div class="hud-corner hud-corner-tl">+</div>
+  <div class="hud-corner hud-corner-tr">+</div>
+  <div class="hud-corner hud-corner-bl">+</div>
+  <div class="hud-corner hud-corner-br">+</div>
+  <div class="hud-frame-line hud-line-top"></div>
+  <div class="hud-frame-line hud-line-bottom"></div>
 
   <!-- FIXED THREE.JS 3D WEBGL CANVAS -->
   <div id="webgl-canvas-container"></div>
@@ -54,757 +37,132 @@
   <div class="liquid-cursor-aura"></div>
   <div class="liquid-morph-overlay"></div>
 
-  <!-- 1. NAVIGATION BAR -->
-  <header class="site-navbar">
-    <div class="container nav-container">
-      <a href="#hero" class="nav-brand">
-        <div class="brand-emblem">E</div>
-        <span class="brand-text">E-WORLD</span>
-      </a>
+  <!-- ACTIVE THEORY TOP HEADER BAR -->
+  <header class="at-header-bar">
+    <div class="at-brand">
+      <div class="at-brand-box">E</div>
+      <div>
+        <div class="at-brand-title">E-WORLD</div>
+        <div class="at-brand-sub">CREATIVE DIGITAL REALMS</div>
+      </div>
+    </div>
 
-      <ul class="nav-menu">
-        <li><a href="#hero" class="nav-link">Nexus</a></li>
-        <li><a href="#intro" class="nav-link">About</a></li>
-        <li class="nav-item-dropdown">
-          <a href="#worlds" class="nav-link">Worlds ▾</a>
-          <div class="dropdown-menu">
-            <a href="#worlds" class="dropdown-item">
-              <span style="font-size: 1.2rem;">🟩</span>
-              <div>
-                <div class="dropdown-item-title">E-World SMP</div>
-                <div class="dropdown-item-sub">Minecraft Java 1.21</div>
-              </div>
-            </a>
-            <a href="#worlds" class="dropdown-item">
-              <span style="font-size: 1.2rem;">🚗</span>
-              <div>
-                <div class="dropdown-item-title">E-World RP</div>
-                <div class="dropdown-item-sub">FiveM / GTA V</div>
-              </div>
-            </a>
-          </div>
-        </li>
-        <li><a href="#galaxy" class="nav-link">Galaxy</a></li>
-        <li><a href="#telemetry" class="nav-link">Live HUD</a></li>
-        <li><a href="#events" class="nav-link">Events</a></li>
-        <li><a href="#creators" class="nav-link">Creators</a></li>
-        <li><a href="#timeline" class="nav-link">Journey</a></li>
-      </ul>
+    <!-- Center Active Scene Telemetry -->
+    <div id="at-scene-indicator" class="at-scene-indicator">
+      [ 01 / 07 // NEXUS PROTOCOL ]
+    </div>
 
-      <div class="nav-actions">
-        <!-- Web Audio Synthesizer Toggle -->
-        <button id="sound-toggle-btn" class="sound-toggle-btn" title="Toggle UI Audio">
-          <span id="sound-icon">🔊</span>
-        </button>
+    <!-- Right Controls: View Switcher & Audio Visualizer -->
+    <div class="at-header-right">
+      <div class="at-mode-switcher">
+        <button class="at-mode-btn active" data-mode="universe">UNIVERSE [3D]</button>
+        <button class="at-mode-btn" data-mode="matrix">INDEX [LIST]</button>
+      </div>
 
-        <a href="#discord-cta" class="btn btn-primary magnetic" style="padding: 0.65rem 1.4rem; font-size: 0.85rem;">
-          JOIN DISCORD
-        </a>
+      <div id="at-audio-toggle" class="at-audio-cluster" title="Toggle Synthesized Audio">
+        <div class="at-spectrum-bars">
+          <div class="at-spec-bar"></div>
+          <div class="at-spec-bar"></div>
+          <div class="at-spec-bar"></div>
+          <div class="at-spec-bar"></div>
+          <div class="at-spec-bar"></div>
+          <div class="at-spec-bar"></div>
+          <div class="at-spec-bar"></div>
+          <div class="at-spec-bar"></div>
+        </div>
+        <span id="at-audio-label" class="at-audio-label">AUDIO: ON</span>
       </div>
     </div>
   </header>
 
-  <!-- MAIN SCROLLABLE WRAPPER -->
-  <main class="content-wrapper">
-    <!-- 2. MAIN HERO SECTION (REAL-TIME 3D & HOLOGRAPHIC TYPOGRAPHY) -->
-    <section id="hero" class="hero-section">
-      <div class="hero-content">
-        <div class="hero-pill-badge">
-          <span class="pulse-dot pulse-dot-cyan"></span>
-          <span>ENTER THE DIGITAL UNIVERSE</span>
-        </div>
+  <!-- MODE 1: ACTIVE THEORY SPATIAL 3D UNIVERSE FLOW -->
+  <main id="universe-viewport" class="universe-viewport">
+    <div id="universe-slider" class="universe-slider">
+      <!-- Injected by UniverseFlow.js -->
+    </div>
 
-        <!-- 3D Holographic Typography Separation -->
-        <div class="hero-title-wrapper">
-          <div class="hero-title-container">
-            <span class="hero-title-e">E</span>
-            <span class="hero-title-dash">•</span>
-            <span class="hero-title-world">WORLD</span>
-          </div>
-        </div>
-
-        <p class="hero-tagline">One Community. Infinite Worlds.</p>
-
-        <!-- High Energy Gaming Badges -->
-        <div class="hero-energy-pills">
-          <span>PLAY</span>
-          <span class="separator">•</span>
-          <span>CONNECT</span>
-          <span class="separator">•</span>
-          <span>CREATE</span>
-          <span class="separator">•</span>
-          <span>COMPETE</span>
-        </div>
-
-        <!-- Hero Action Buttons -->
-        <div class="hero-cta-group">
-          <a href="#discord-cta" id="hero-join-btn" class="btn btn-primary btn-liquid magnetic">
-            <span>⚡ JOIN E-WORLD</span>
-          </a>
-          <a href="#worlds" id="hero-explore-btn" class="btn btn-secondary magnetic">
-            <span>EXPLORE THE WORLD ↓</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-scroll-indicator">
-        <span>SCROLL TO ENTER</span>
-        <div class="scroll-line"></div>
-      </div>
-    </section>
-
-    <!-- 3. INTRODUCTION SECTION ("WHAT IS E-WORLD?") -->
-    <section id="intro" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">
-            <span>✦ THE ECOSYSTEM PHILOSOPHY</span>
-          </div>
-          <h2 class="section-title">What is <span class="text-gradient-cyan">E-World</span>?</h2>
-          <p class="section-desc">
-            We broke away from disconnected Discord silos and generic esports templates. E-World is an unified digital civilization engineered for boundless creativity, competitive mastery, and genuine camaraderie.
-          </p>
-        </div>
-
-        <div class="intro-grid">
-          <div class="glass-card intro-card tilt-card">
-            <div class="intro-icon-wrapper" style="color: var(--cyan-primary);">🌐</div>
-            <h3>Unified Architecture</h3>
-            <p>Your identity, achievements, and friends travel with you across Minecraft survival realms, FiveM roleplay cities, and sanctioned competitive tournaments.</p>
-          </div>
-
-          <div class="glass-card intro-card tilt-card">
-            <div class="intro-icon-wrapper" style="color: var(--emerald-smp);">⚔️</div>
-            <h3>Deep Gameplay Realms</h3>
-            <p>From custom shader-infused SMP mechanics to high-fidelity GTA roleplay economies, our servers are built from the ground up for maximum immersion.</p>
-          </div>
-
-          <div class="glass-card intro-card tilt-card">
-            <div class="intro-icon-wrapper" style="color: var(--crimson-rp);">🏆</div>
-            <h3>Sanctioned Esports</h3>
-            <p>Regular cash tournaments, anti-cheat enforcement, official broadcast casters, and community leagues that give everyday gamers a professional stage.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. "CHOOSE YOUR WORLD" (INTERACTIVE SPLIT PORTALS) -->
-    <section id="worlds" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">
-            <span>⚔️ DUAL DIMENSIONS</span>
-          </div>
-          <h2 class="section-title">Choose Your <span class="text-gradient-cyan">World</span></h2>
-          <p class="section-desc">
-            Two distinct realities powered by the E-World core. Hover over either portal to peer through the dimensional gateway.
-          </p>
-        </div>
-
-        <div class="portals-wrapper">
-          <div class="portals-split-container">
-            <!-- Left: E-World SMP -->
-            <div class="portal-half portal-smp">
-              <div class="portal-bg-decor"></div>
-              <div class="portal-content">
-                <div class="portal-status-tag badge-smp">
-                  <span class="pulse-dot pulse-dot-green"></span>
-                  MINECRAFT JAVA 1.21 REALM
-                </div>
-                <h3 class="portal-title text-gradient-smp">E-WORLD SMP</h3>
-                <div class="portal-credo" style="color: var(--emerald-smp);">BUILD • EXPLORE • SURVIVE</div>
-                <ul class="portal-features-list">
-                  <li>Custom Terrain Shaders</li>
-                  <li>Player Driven Economy</li>
-                  <li>End Boss Raids</li>
-                  <li>Anti-Grief Protection</li>
-                </ul>
-                <button id="btn-enter-smp" class="btn btn-smp magnetic" style="align-self: flex-start;">
-                  ENTER E-WORLD SMP [COMING SOON]
-                </button>
-              </div>
-            </div>
-
-            <!-- Right: E-World RP -->
-            <div class="portal-half portal-rp">
-              <div class="portal-bg-decor"></div>
-              <div class="portal-content">
-                <div class="portal-status-tag badge-rp">
-                  <span class="pulse-dot" style="background: var(--crimson-rp); box-shadow: 0 0 8px var(--crimson-rp);"></span>
-                  FIVEM ROLEPLAY METROPOLIS
-                </div>
-                <h3 class="portal-title text-gradient-rp">E-WORLD RP</h3>
-                <div class="portal-credo" style="color: var(--crimson-rp);">LIVE • BUILD • BECOME</div>
-                <ul class="portal-features-list">
-                  <li>Realistic Economy</li>
-                  <li>Custom Vehicle Handling</li>
-                  <li>Dedicated Police / EMS</li>
-                  <li>Luxury Real Estate</li>
-                </ul>
-                <button id="btn-enter-rp" class="btn btn-rp magnetic" style="align-self: flex-start;">
-                  ENTER E-WORLD RP [COMING SOON]
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. COMMUNITY GALAXY (INTERACTIVE 3D/2D NODE NETWORK) -->
-    <section id="galaxy" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">
-            <span>🌌 ECOSYSTEM MAP</span>
-          </div>
-          <h2 class="section-title">The Community <span class="text-gradient-cyan">Galaxy</span></h2>
-          <p class="section-desc">
-            An interactive network showing how every facet of E-World orbits around one unified core. Click any node to open its telemetry dossier.
-          </p>
-        </div>
-
-        <div class="galaxy-card">
-          <div class="galaxy-canvas-wrapper">
-            <canvas id="galaxy-canvas"></canvas>
-
-            <!-- Floating Glass Node Dossier Drawer -->
-            <div id="galaxy-drawer" class="galaxy-drawer">
-              <button id="galaxy-drawer-close" class="modal-close">✕</button>
-              <div id="galaxy-drawer-category" class="badge badge-live" style="margin-bottom: 0.75rem;">Category</div>
-              <h3 id="galaxy-drawer-title" style="font-size: 1.4rem; margin-bottom: 0.75rem;">Node Title</h3>
-              <p id="galaxy-drawer-desc" style="color: var(--text-secondary); font-size: 0.885rem; line-height: 1.5; margin-bottom: 1.25rem;">Description</p>
-              <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.85rem;">
-                <div class="mono" style="font-size: 0.75rem; color: var(--cyan-primary);" id="galaxy-drawer-stats">Telemetry</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="galaxy-controls-bar">
-            <span>✦ DRAG CANVAS TO ROTATE ORBIT • CLICK SATELLITES TO INSPECT</span>
-            <span class="mono">STATUS: 10/10 NODES SYNCHRONIZED</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. E-WORLD LIVE ACTIVITY (CYBER CONTROL CENTER HUD) -->
-    <section id="telemetry" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">
-            <span>📡 TELEMETRY HUB</span>
-          </div>
-          <h2 class="section-title">Live Ecosystem <span class="text-gradient-cyan">Control Center</span></h2>
-          <p class="section-desc">
-            Real-time telemetry streaming from our Discord guild, Minecraft SMP node, and FiveM roleplay clusters.
-          </p>
-        </div>
-
-        <div class="telemetry-grid">
-          <!-- Discord Telemetry -->
-          <div class="glass-card telemetry-stat-card tilt-card">
-            <div class="telemetry-stat-header">
-              <span class="badge badge-live">
-                <span class="pulse-dot pulse-dot-cyan"></span> DISCORD
-              </span>
-              <span class="mono" style="color: var(--text-muted); font-size: 0.75rem;">18ms PING</span>
-            </div>
-            <div class="telemetry-value text-gradient-cyan" id="discord-online-count" data-val="2381">2,381</div>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">PLAYERS ONLINE</div>
-            <div class="telemetry-meta">
-              <span>Total Guild: 12,342</span>
-              <span style="color: var(--cyan-primary);">86 in Voice</span>
-            </div>
-          </div>
-
-          <!-- SMP Telemetry -->
-          <div class="glass-card telemetry-stat-card tilt-card">
-            <div class="telemetry-stat-header">
-              <span class="badge badge-smp">
-                <span class="pulse-dot pulse-dot-green"></span> E-WORLD SMP
-              </span>
-              <span class="mono" style="color: var(--emerald-smp); font-size: 0.75rem;">20.0 TPS</span>
-            </div>
-            <div class="telemetry-value text-gradient-smp" id="smp-online-count" data-val="82">82</div>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">ACTIVE SURVIVORS</div>
-            <div class="telemetry-meta">
-              <span>PaperMC 1.21</span>
-              <span style="color: var(--emerald-smp);">Uptime 99.98%</span>
-            </div>
-          </div>
-
-          <!-- RP Telemetry -->
-          <div class="glass-card telemetry-stat-card tilt-card">
-            <div class="telemetry-stat-header">
-              <span class="badge badge-rp">
-                <span class="pulse-dot" style="background: var(--crimson-rp);"></span> E-WORLD RP
-              </span>
-              <span class="mono" style="color: var(--crimson-rp); font-size: 0.75rem;">BUILD b3095</span>
-            </div>
-            <div class="telemetry-value text-gradient-rp" id="rp-online-count" data-val="126">126</div>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">CITIZENS IN CITY</div>
-            <div class="telemetry-meta">
-              <span>14 LSPD On-Duty</span>
-              <span style="color: var(--crimson-rp);">8 EMS Active</span>
-            </div>
-          </div>
-
-          <!-- Current Spotlight -->
-          <div class="glass-card telemetry-stat-card tilt-card">
-            <div class="telemetry-stat-header">
-              <span class="badge badge-gold">
-                <span>🏆</span> SPOTLIGHT
-              </span>
-              <span class="mono" style="color: var(--amber-gold); font-size: 0.75rem;">FINALS</span>
-            </div>
-            <div class="telemetry-value text-gradient-gold" style="font-size: 1.8rem; padding-top: 0.5rem;">CODM S&D</div>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted);">$1,500 PRIZE POOL</div>
-            <div class="telemetry-meta">
-              <span>Double Elimination</span>
-              <span style="color: var(--amber-gold);">32 Teams</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Continuous Ticker Feed -->
-        <div class="ticker-container">
-          <div class="ticker-label">
-            <span class="pulse-dot pulse-dot-cyan"></span>
-            <span>LIVE FEED:</span>
-          </div>
-          <div class="ticker-viewport">
-            <div id="live-ticker-content" class="ticker-content">
-              <!-- Injected by LiveActivity.js -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. COMMUNITY SHOWCASE ("THIS IS E-WORLD") -->
-    <section id="showcase" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">
-            <span>📸 CINEMATIC MOMENTS</span>
-          </div>
-          <h2 class="section-title">This is <span class="text-gradient-cyan">E-World</span></h2>
-          <p class="section-desc">
-            A celebration of high-octane community tournaments, architectural megabuilds, street chases, and unforgettable moments.
-          </p>
-        </div>
-
-        <!-- Animated Statistics Counters -->
-        <div class="showcase-stats-banner">
-          <div>
-            <div class="counter-num text-gradient-cyan" data-target="12000" data-suffix="+">0</div>
-            <div class="counter-label">Community Members</div>
-          </div>
-          <div>
-            <div class="counter-num text-gradient-smp" data-target="24" data-suffix="/7">0</div>
-            <div class="counter-label">Active Realms</div>
-          </div>
-          <div>
-            <div class="counter-num text-gradient-rp" data-target="3" data-suffix=" Worlds">0</div>
-            <div class="counter-label">Interconnected</div>
-          </div>
-          <div>
-            <div class="counter-num text-gradient-gold" data-target="140" data-suffix="+">0</div>
-            <div class="counter-label">Tournaments & Events</div>
-          </div>
-        </div>
-
-        <!-- 3D Floating Perspective Screenshot Stage -->
-        <div class="showcase-perspective-stage">
-          <!-- Card 1: Large Featured Community Moment -->
-          <div class="showcase-card showcase-card-large tilt-card">
-            <div class="showcase-img-placeholder" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), radial-gradient(circle at center, #1b263b, #0d1b2a);">
-              <div class="showcase-card-overlay"></div>
-              <div class="showcase-meta">
-                <span class="badge badge-live" style="margin-bottom: 0.5rem;">TOURNAMENT ARENA</span>
-                <h4>CODM Championship Grand Finals</h4>
-                <p>Over 400 concurrent community viewers witnessed the clutch round-11 defuse.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: Minecraft SMP Megabuild -->
-          <div class="showcase-card showcase-card-medium tilt-card">
-            <div class="showcase-img-placeholder" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), radial-gradient(circle at center, #064e3b, #022c22);">
-              <div class="showcase-card-overlay"></div>
-              <div class="showcase-meta">
-                <span class="badge badge-smp" style="margin-bottom: 0.5rem;">SMP MEGAPROJECT</span>
-                <h4>The Celestial Citadel</h4>
-                <p>Constructed by guild Architects across 140 survival hours with custom shader reflections.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3: FiveM RP Night Chase -->
-          <div class="showcase-card showcase-card-small tilt-card">
-            <div class="showcase-img-placeholder" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), radial-gradient(circle at center, #831843, #500724);">
-              <div class="showcase-card-overlay"></div>
-              <div class="showcase-meta">
-                <span class="badge badge-rp" style="margin-bottom: 0.5rem;">FIVEM MIDNIGHT</span>
-                <h4>Vinewood Underground GP</h4>
-                <p>High-stakes pink-slip racing down Olympic Freeway.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4: Discord Milestone -->
-          <div class="showcase-card showcase-card-small tilt-card">
-            <div class="showcase-img-placeholder" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), radial-gradient(circle at center, #4c1d95, #2e1065);">
-              <div class="showcase-card-overlay"></div>
-              <div class="showcase-meta">
-                <span class="badge badge-gold" style="margin-bottom: 0.5rem;">DISCORD GALA</span>
-                <h4>10,000 Travelers Celebration</h4>
-                <p>Custom Nitro drops and live voice party with partner creators.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 5: Survival Dragon Raid -->
-          <div class="showcase-card showcase-card-small tilt-card">
-            <div class="showcase-img-placeholder" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), radial-gradient(circle at center, #0e7490, #155e75);">
-              <div class="showcase-card-overlay"></div>
-              <div class="showcase-meta">
-                <span class="badge badge-smp" style="margin-bottom: 0.5rem;">SMP BOSS RAID</span>
-                <h4>The Void Awakens</h4>
-                <p>Server-wide multi-phase boss encounter in the End Realm.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. COMMUNITY EVENTS MATRIX ("WHAT'S HAPPENING") -->
-    <section id="events" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">
-            <span>🔥 UPCOMING OPERATIONS</span>
-          </div>
-          <h2 class="section-title">What's <span class="text-gradient-cyan">Happening</span></h2>
-          <p class="section-desc">
-            Competitive showdowns, seasonal realm expeditions, and hardware giveaways scheduled across the calendar.
-          </p>
-        </div>
-
-        <!-- Major Featured Event Hero Banner with Countdown -->
-        <div class="events-featured-banner">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-              <span class="badge badge-live">FEATURED TOURNAMENT</span>
-              <span class="badge badge-gold">$1,500 CASH PRIZE</span>
-            </div>
-            <h3 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 0.5rem;">
-              CODM CHAMPIONSHIP 2026
-            </h3>
-            <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 1.5rem; max-width: 600px;">
-              5v5 Search & Destroy Elite Invitational. 32 seeded teams clash for ecosystem supremacy with live broadcast casting.
-            </p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="#discord-cta" class="btn btn-primary magnetic" style="font-size: 0.85rem;">Register Your Squad</a>
-              <a href="#events" class="btn btn-secondary magnetic" style="font-size: 0.85rem;">View Rulebook</a>
-            </div>
-          </div>
-
-          <!-- Live Countdown Clock -->
-          <div class="featured-event-countdown">
-            <div class="countdown-unit">
-              <div id="count-days" class="countdown-val">03</div>
-              <div class="countdown-tag">Days</div>
-            </div>
-            <div class="countdown-unit">
-              <div id="count-hours" class="countdown-val">14</div>
-              <div class="countdown-tag">Hours</div>
-            </div>
-            <div class="countdown-unit">
-              <div id="count-minutes" class="countdown-val">22</div>
-              <div class="countdown-tag">Mins</div>
-            </div>
-            <div class="countdown-unit">
-              <div id="count-seconds" class="countdown-val">08</div>
-              <div class="countdown-tag">Secs</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Filter Tabs -->
-        <div class="events-tabs">
-          <button class="event-tab-btn active" data-category="all">All Operations</button>
-          <button class="event-tab-btn" data-category="tournament">Tournaments</button>
-          <button class="event-tab-btn" data-category="minecraft">Minecraft SMP</button>
-          <button class="event-tab-btn" data-category="rp">FiveM RP</button>
-          <button class="event-tab-btn" data-category="giveaway">Giveaways</button>
-          <button class="event-tab-btn" data-category="stream">Creator Streams</button>
-        </div>
-
-        <!-- Injected Events Grid -->
-        <div id="events-cards-grid" class="events-cards-grid">
-          <!-- Injected by EventsSection.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. CREATOR SPOTLIGHT -->
-    <section id="creators" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">
-            <span>⭐ CONTENT CREATORS</span>
-          </div>
-          <h2 class="section-title">Creator <span class="text-gradient-cyan">Spotlight</span></h2>
-          <p class="section-desc">
-            Meet the storytellers, machinima artists, and high-ranked competitors who bring the E-World universe to thousands of live viewers.
-          </p>
-        </div>
-
-        <div id="creators-grid" class="creators-grid">
-          <!-- Injected by CreatorSpotlight.js -->
-        </div>
-
-        <div style="text-align: center; margin-top: 4rem;">
-          <button id="apply-creator-btn" class="btn btn-secondary magnetic">
-            ✦ Apply for Creator Verification & Server Perks
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. THE E-WORLD STORY (INTERACTIVE HORIZONTAL TIMELINE) -->
-    <section id="timeline" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">
-            <span>⏳ CHRONOLOGY</span>
-          </div>
-          <h2 class="section-title">The E-World <span class="text-gradient-cyan">Journey</span></h2>
-          <p class="section-desc">
-            From humble gaming squad origins to an expansive, interconnected multiverse. Drag horizontally to trace our history.
-          </p>
-        </div>
-
-        <div class="timeline-scroll-wrapper">
-          <div class="timeline-track">
-            <!-- 2024 -->
-            <div class="timeline-node">
-              <div class="timeline-point">2024</div>
-              <div class="timeline-body">
-                <h4>Genesis Protocol</h4>
-                <p>E-World was founded with a singular conviction: gaming communities deserve high cinematic production and tight-knit loyalty.</p>
-              </div>
-            </div>
-
-            <!-- 2025 -->
-            <div class="timeline-node">
-              <div class="timeline-point">2025</div>
-              <div class="timeline-body">
-                <h4>Network Expansion</h4>
-                <p>Expanded into competitive tournament hosting, welcoming our first 5,000 registered players and partnering with top regional creators.</p>
-              </div>
-            </div>
-
-            <!-- 2026 Q1 -->
-            <div class="timeline-node">
-              <div class="timeline-point" style="border-color: var(--emerald-smp); box-shadow: 0 0 25px var(--emerald-glow);">2026</div>
-              <div class="timeline-body">
-                <h4>E-World SMP Launch</h4>
-                <p>Deployment of our proprietary custom-terrain survival multiplayer realm with real-time web telemetry and guild territorial wars.</p>
-              </div>
-            </div>
-
-            <!-- 2026 Q2 -->
-            <div class="timeline-node">
-              <div class="timeline-point" style="border-color: var(--crimson-rp); box-shadow: 0 0 25px var(--crimson-glow);">2026</div>
-              <div class="timeline-body">
-                <h4>E-World RP Debut</h4>
-                <p>Grand opening of our FiveM Los Santos roleplay metropolis featuring custom criminal enterprises, real estate, and emergency dispatch.</p>
-              </div>
-            </div>
-
-            <!-- Future -->
-            <div class="timeline-node">
-              <div class="timeline-point" style="border-color: var(--violet-celestial); box-shadow: 0 0 25px var(--violet-glow);">FUTURE</div>
-              <div class="timeline-body">
-                <h4>The Infinite Frontier</h4>
-                <p>Next-generation cross-platform player dashboards, mobile guild companions, and international esports invitations.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 11. STAFF & TEAM MATRIX (ROTATING 3D CARDS) -->
-    <section id="team" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">
-            <span>🛡️ GOVERNANCE</span>
-          </div>
-          <h2 class="section-title">Ecosystem <span class="text-gradient-cyan">Council</span></h2>
-          <p class="section-desc">
-            The visionary architects, systems developers, and 24/7 security officers maintaining harmony across all realms.
-          </p>
-        </div>
-
-        <div id="team-filter-bar" class="team-filter-bar">
-          <!-- Injected by TeamSection.js -->
-        </div>
-
-        <div id="team-grid" class="team-grid">
-          <!-- Injected by TeamSection.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 12. BESPOKE DISCORD INTEGRATION COMMAND CONSOLE (CTA) -->
-    <section id="discord-cta" class="section discord-cta-section">
-      <div class="container">
-        <div class="discord-command-console">
-          <div class="discord-console-grid">
-            <div>
-              <div class="badge badge-live" style="margin-bottom: 1.25rem;">
-                <span class="pulse-dot pulse-dot-cyan"></span>
-                COMMUNITY PROTOCOL ONLINE
-              </div>
-              <h2 class="discord-cta-title">
-                Enter the Universe.<br />
-                <span class="text-gradient-cyan">Join E-World.</span>
-              </h2>
-              <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.6; max-width: 540px;">
-                Ready to explore custom Minecraft SMP realms, participate in FiveM roleplay cinema, or dominate competitive cash tourneys? Your journey begins here.
-              </p>
-
-              <div class="discord-tags-cluster">
-                <span class="discord-tag">⚡ 12,000+ Travelers</span>
-                <span class="discord-tag">🎮 Minecraft SMP</span>
-                <span class="discord-tag">🚗 FiveM RP</span>
-                <span class="discord-tag">🏆 Esports Leagues</span>
-                <span class="discord-tag">🎁 Nitro Giveaways</span>
-                <span class="discord-tag">🎙️ 24/7 Voice Lounges</span>
-              </div>
-
-              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <button id="discord-direct-join-btn" class="btn btn-primary btn-liquid magnetic" style="font-size: 1.05rem; padding: 1.1rem 2.5rem;">
-                  JOIN DISCORD SERVER ↗
-                </button>
-                <button id="discord-copy-link-btn" class="btn btn-secondary magnetic" style="font-size: 0.95rem;">
-                  Copy Invite Link
-                </button>
-              </div>
-            </div>
-
-            <div class="discord-telemetry-hud">
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                  <div class="brand-emblem" style="width: 32px; height: 32px; font-size: 0.9rem;">E</div>
-                  <strong style="font-family: var(--font-heading);">E-WORLD GATEWAY</strong>
-                </div>
-                <span class="badge badge-live">VERIFIED</span>
-              </div>
-
-              <div class="discord-hud-row">
-                <span style="color: var(--text-muted);">Active Citizens</span>
-                <span style="color: #ffffff; font-weight: 700;">12,342</span>
-              </div>
-              <div class="discord-hud-row">
-                <span style="color: var(--text-muted);">Online Now</span>
-                <span style="color: var(--cyan-primary); font-weight: 700;">● 2,381</span>
-              </div>
-              <div class="discord-hud-row">
-                <span style="color: var(--text-muted);">Minecraft Cluster</span>
-                <span style="color: var(--emerald-smp); font-weight: 700;">ONLINE (82)</span>
-              </div>
-              <div class="discord-hud-row">
-                <span style="color: var(--text-muted);">FiveM Metropolis</span>
-                <span style="color: var(--crimson-rp); font-weight: 700;">ONLINE (126)</span>
-              </div>
-              <div class="discord-hud-row">
-                <span style="color: var(--text-muted);">Security Protocol</span>
-                <span style="color: #ffffff;">AutoMod Active</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Bottom Center Drag / Wheel Hint -->
+    <div class="universe-nav-hint">
+      <span>← DRAG OR WHEEL SCRUB TO TRAVEL →</span>
+    </div>
   </main>
 
-  <!-- 13. FUTURISTIC FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="#hero" class="nav-brand" style="margin-bottom: 1rem;">
-            <div class="brand-emblem">E</div>
-            <span class="brand-text">E-WORLD</span>
-          </a>
-          <p>
-            The digital universe where gaming passion meets high-performance realms and unified community camaraderie.
-          </p>
-          <div class="mono" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">
-            COORDINATES: 0x7E : UNIVERSE_ALPHA
-          </div>
+  <!-- MODE 2: ACTIVE THEORY TECHNICAL INDEX MATRIX VIEW -->
+  <section id="matrix-viewport" class="matrix-viewport">
+    <div class="matrix-container">
+      <div class="matrix-toolbar">
+        <div class="matrix-search-box">
+          <span style="color: var(--cyan-primary);">🔍</span>
+          <input type="text" id="matrix-search-input" class="matrix-search-input" placeholder="SEARCH REALMS, TOURNAMENTS, CREATORS..." />
         </div>
 
-        <div class="footer-col">
-          <h5>Realms</h5>
-          <ul class="footer-links">
-            <li><a href="#worlds">E-World SMP</a></li>
-            <li><a href="#worlds">E-World RP</a></li>
-            <li><a href="#events">CODM Arena</a></li>
-            <li><a href="#galaxy">Galaxy Network</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>Community</h5>
-          <ul class="footer-links">
-            <li><a href="#discord-cta">Discord Server</a></li>
-            <li><a href="#creators">Creator Spotlight</a></li>
-            <li><a href="#events">Events Calendar</a></li>
-            <li><a href="#team">Staff & Council</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>Resources</h5>
-          <ul class="footer-links">
-            <li><a href="#timeline">The E-World Story</a></li>
-            <li><a href="#intro">About The Protocol</a></li>
-            <li><a href="#creators">Creator Application</a></li>
-            <li><a href="#discord-cta">Support & Tickets</a></li>
-          </ul>
+        <div class="matrix-filters">
+          <button class="matrix-filter-chip active" data-category="all">ALL ENTRIES</button>
+          <button class="matrix-filter-chip" data-category="realms">REALMS</button>
+          <button class="matrix-filter-chip" data-category="esports">TOURNAMENTS</button>
+          <button class="matrix-filter-chip" data-category="creators">CREATORS</button>
+          <button class="matrix-filter-chip" data-category="council">COUNCIL</button>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div>© 2026 E-WORLD. ALL RIGHTS RESERVED.</div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="#" style="color: var(--text-muted); text-decoration: none;">PRIVACY PROTOCOL</a>
-          <a href="#" style="color: var(--text-muted); text-decoration: none;">TERMS OF REALM</a>
-        </div>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th style="width: 80px;">IDX</th>
+            <th>REALM / ENTITY</th>
+            <th style="width: 220px;">CATEGORY</th>
+            <th style="width: 140px;">STATUS</th>
+            <th style="width: 120px;">ACTION</th>
+          </tr>
+        </thead>
+        <tbody id="matrix-table-body">
+          <!-- Injected dynamically by IndexMatrix.js -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ACTIVE THEORY BOTTOM FOOTER BAR -->
+  <footer class="at-footer-bar">
+    <div class="at-footer-left">
+      <div class="at-status-pill">
+        <span class="pulse-dot pulse-dot-cyan"></span>
+        <span>CORE: 24/7 ONLINE</span>
       </div>
+      <span id="hud-live-clock">18:45:00 UTC</span>
+    </div>
+
+    <!-- Center Pagination Scrub Dots -->
+    <div class="at-footer-center">
+      <div class="at-scrub-dot active" data-index="0" title="Scene 01: Nexus"></div>
+      <div class="at-scrub-dot" data-index="1" title="Scene 02: SMP"></div>
+      <div class="at-scrub-dot" data-index="2" title="Scene 03: RP"></div>
+      <div class="at-scrub-dot" data-index="3" title="Scene 04: Galaxy"></div>
+      <div class="at-scrub-dot" data-index="4" title="Scene 05: Esports"></div>
+      <div class="at-scrub-dot" data-index="5" title="Scene 06: Creators"></div>
+      <div class="at-scrub-dot" data-index="6" title="Scene 07: Gateway"></div>
+    </div>
+
+    <div class="at-footer-right">
+      <span id="hud-coord-indicator">0x00 // NEXUS_ORIGIN</span>
+      <a href="https://discord.gg/eworld" target="_blank" rel="noopener" style="color: var(--cyan-primary); text-decoration: none; font-weight: 600;">
+        JOIN DISCORD ↗
+      </a>
     </div>
   </footer>
 
-  <!-- GENERAL PURPOSE TELEMETRY / RULEBOOK MODAL -->
+  <!-- FULLSCREEN LIQUID DETAIL MODAL -->
   <div id="general-modal" class="modal-overlay">
     <div class="modal-content">
       <button class="modal-close" onclick="document.getElementById('general-modal').classList.remove('active')">✕</button>
-      <h3 id="modal-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Protocol Transmission</h3>
+      <h3 id="modal-title" style="font-size: 1.6rem; margin-bottom: 1rem;">Protocol Transmission</h3>
       <div id="modal-body">
-        <!-- Injected dynamically -->
+        <!-- Injected dynamically by LiquidDetailModal.js -->
       </div>
     </div>
   </div>
 
-  <!-- MAIN JAVASCRIPT ENTRYPOINT -->
+  <!-- MAIN APPLICATION ENTRYPOINT -->
   <script type="module" src="./src/main.js"></script>
 </body>
 </html>

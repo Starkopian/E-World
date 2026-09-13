@@ -6,7 +6,7 @@ export const teamMembers = [
     category: 'founder',
     discordTag: 'stark#0001',
     bio: 'Pioneered the E-World digital universe with the conviction that gaming communities deserve cinematic production value and frictionless connection.',
-    avatarColor: 'linear-gradient(135deg, #00f0ff, #0066ff)',
+    avatarColor: 'linear-gradient(135deg, #efff00, #efff00)',
     badge: 'FOUNDER'
   },
   {
@@ -26,7 +26,7 @@ export const teamMembers = [
     category: 'development',
     discordTag: 'nexus#3095',
     bio: 'Architect of custom FiveM synchronization scripts, server framework optimizations, and web telemetry bridge APIs.',
-    avatarColor: 'linear-gradient(135deg, #00ffa3, #0284c7)',
+    avatarColor: 'linear-gradient(135deg, #efff00, #0284c7)',
     badge: 'ENGINEER'
   },
   {

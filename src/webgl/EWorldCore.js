@@ -10,14 +10,16 @@ export class EWorldCore {
     // 1. Central Core Sphere - Chrome & Glass Icosahedron
     const coreGeo = new THREE.IcosahedronGeometry(2.2, 2);
     const coreMat = new THREE.MeshPhysicalMaterial({
-      color: 0x0a1128,
-      emissive: 0x00f0ff,
+      color: 0x080808,
+      emissive: 0xefff00,
       emissiveIntensity: 0.15,
       roughness: 0.1,
       metalness: 0.9,
       clearcoat: 1.0,
       clearcoatRoughness: 0.1,
-      wireframe: false
+      wireframe: true,
+      transparent: true,
+      opacity: 0.08
     });
     this.coreMesh = new THREE.Mesh(coreGeo, coreMat);
     this.group.add(this.coreMesh);
@@ -25,7 +27,7 @@ export class EWorldCore {
     // 2. Wireframe Energy Cage over core
     const wireGeo = new THREE.IcosahedronGeometry(2.35, 1);
     const wireMat = new THREE.MeshBasicMaterial({
-      color: 0x00f0ff,
+      color: 0xefff00,
       wireframe: true,
       transparent: true,
       opacity: 0.35
@@ -39,7 +41,7 @@ export class EWorldCore {
       color: 0xffffff,
       metalness: 0.95,
       roughness: 0.15,
-      emissive: 0x00f0ff,
+      emissive: 0xefff00,
       emissiveIntensity: 0.4
     });
 
@@ -67,13 +69,16 @@ export class EWorldCore {
     botBar.position.set(0.0, -0.825, 0);
     this.emblemGroup.add(botBar);
 
+    this.emblemGroup.position.z = 2.6;
+    this.emblemGroup.scale.setScalar(1.5);
+    this.emblemGroup.children.forEach(part => { part.userData.home = part.position.clone(); });
     this.group.add(this.emblemGroup);
 
     // 4. Orbital Ring 1: SMP Realm (Emerald Glow)
     const ring1Geo = new THREE.TorusGeometry(3.6, 0.04, 16, 100);
     const ring1Mat = new THREE.MeshStandardMaterial({
-      color: 0x00ffa3,
-      emissive: 0x00ffa3,
+      color: 0xefff00,
+      emissive: 0xefff00,
       emissiveIntensity: 0.8,
       roughness: 0.2,
       metalness: 0.8
@@ -86,8 +91,8 @@ export class EWorldCore {
     // 5. Orbital Ring 2: RP Realm (Crimson / Sunset Glow)
     const ring2Geo = new THREE.TorusGeometry(4.2, 0.04, 16, 100);
     const ring2Mat = new THREE.MeshStandardMaterial({
-      color: 0xff3366,
-      emissive: 0xff3366,
+      color: 0xefff00,
+      emissive: 0xefff00,
       emissiveIntensity: 0.8,
       roughness: 0.2,
       metalness: 0.8
@@ -100,7 +105,7 @@ export class EWorldCore {
     // 6. Orbital Ring 3: Community Outer Ring (Cyan Glow)
     const ring3Geo = new THREE.TorusGeometry(4.8, 0.03, 16, 100);
     const ring3Mat = new THREE.MeshBasicMaterial({
-      color: 0x00f0ff,
+      color: 0xefff00,
       transparent: true,
       opacity: 0.4
     });
@@ -112,8 +117,8 @@ export class EWorldCore {
     // Beacon 1: SMP (Emerald cube nod to Minecraft)
     const beacon1Geo = new THREE.BoxGeometry(0.3, 0.3, 0.3);
     const beacon1Mat = new THREE.MeshStandardMaterial({
-      color: 0x00ffa3,
-      emissive: 0x00ffa3,
+      color: 0xefff00,
+      emissive: 0xefff00,
       emissiveIntensity: 1.0,
       roughness: 0.1
     });
@@ -123,8 +128,8 @@ export class EWorldCore {
     // Beacon 2: RP (Sleek diamond nod to FiveM luxury)
     const beacon2Geo = new THREE.OctahedronGeometry(0.25, 0);
     const beacon2Mat = new THREE.MeshStandardMaterial({
-      color: 0xff3366,
-      emissive: 0xff3366,
+      color: 0xefff00,
+      emissive: 0xefff00,
       emissiveIntensity: 1.0,
       roughness: 0.1
     });
@@ -132,11 +137,18 @@ export class EWorldCore {
     this.group.add(this.beaconRP);
 
     // 8. Core Point Light
-    this.coreLight = new THREE.PointLight(0x00f0ff, 3, 15);
+    this.coreLight = new THREE.PointLight(0xefff00, 3, 15);
     this.group.add(this.coreLight);
   }
 
   update(delta, time, mouseX = 0, mouseY = 0) {
+    const scroll = Math.min(1, window.scrollY / window.innerHeight);
+    const spread = Math.max(0, 1 - time / 1.6) * 3 + scroll * 1.4;
+    this.emblemGroup.children.forEach((part, i) => {
+      part.position.copy(part.userData.home);
+      part.position.x += (i % 2 ? 1 : -1) * spread;
+      part.position.y += (i - 1.5) * spread;
+    });
     // Gentle floating bob
     this.group.position.y = Math.sin(time * 1.5) * 0.2;
 

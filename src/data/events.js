@@ -11,6 +11,7 @@ export const upcomingEvents = [
     slots: '32 Teams (28 Registered)',
     status: 'REGISTERING',
     featured: true,
+    startsAt: '2026-09-12T18:00:00Z',
     bannerTheme: 'neon-cyan',
     description: 'The premier competitive showdown in the E-World ecosystem. 32 top teams battle through double-elimination brackets with live casting on Twitch & YouTube.',
     rules: ['5v5 Search & Destroy', 'Official Tournament Map Pool', 'Anti-Cheat Enforcement Required', 'Live Broadcast Casting']

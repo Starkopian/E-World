@@ -1,0 +1,131 @@
+/* High Voltage: a single brand palette across every world. */
+:root {
+  --neon: #efff00;
+  --bg-surface-glass: rgba(16,16,16,.88);
+  --bg-surface-glass-heavy: rgba(12,12,12,.96);
+  --text-secondary: #b8b8b8;
+  --text-muted: #999;
+}
+body { background: #080808; }
+section { scroll-margin-top: 90px; }
+.site-navbar, .site-navbar.scrolled { background: rgba(8,8,8,.94); border-bottom: 1px solid #292929; }
+.brand-emblem { background: var(--neon); color: #080808; border: 0; border-radius: 2px; box-shadow: none; }
+.nav-menu { gap: 1.25rem; }
+.btn { border-radius: 3px; letter-spacing: .04em; }
+.btn-primary, .btn-smp { background: var(--neon); color: #080808; border-color: var(--neon); box-shadow: none; }
+.btn-primary:hover, .btn-smp:hover { background: white; color: #080808; box-shadow: 0 0 25px #efff0033; }
+.btn-rp { background: white; color: #080808; border-color: white; }
+.btn-secondary { background: #111; color: white; }
+.glass-card { background: #101010e8; border-radius: 8px; box-shadow: none; }
+.section-title { letter-spacing: -.045em; }
+.text-gradient-cyan,.text-gradient-smp,.text-gradient-rp,.text-gradient-gold { background: none; color: var(--neon); -webkit-text-fill-color: var(--neon); }
+.hero-section { min-height: 850px; min-height: 100svh; align-items: flex-start; text-align: left; padding: 160px max(5vw,24px) 100px; }
+.hero-content { max-width: 850px; width: 65%; margin: 0; }
+.hero-pill-badge { color: var(--neon); border-radius: 2px; font-size: .7rem; letter-spacing: .12em; box-shadow: none; }
+.voltage-title { font-family: var(--font-display); font-size: clamp(3.4rem,7.8vw,8.4rem); line-height: .98; font-weight: 800; letter-spacing: -.065em; margin: 0 0 28px; }
+.voltage-title span { color: var(--neon); }
+.hero-tagline { color: white; font-size: 1.45rem; }
+.hero-description { color: #b8b8b8; line-height: 1.8; margin-bottom: 28px; max-width: 540px; }
+.hero-energy-pills, .hero-cta-group { justify-content: flex-start; }
+.hero-energy-pills { font-size: .68rem; margin-bottom: 30px; color: #aaa; }
+.hero-scroll-indicator { left: max(5vw,24px); transform: none; align-items: flex-start; }
+#webgl-canvas-container { opacity: .65; }
+.voltage-strip { position: relative; z-index: 5; background: var(--neon); color: #080808; display: flex; justify-content: space-around; gap: 20px; padding: 25px; font-family: var(--font-display); font-size: clamp(1rem,2vw,1.8rem); font-weight: 800; letter-spacing: -.03em; }
+.portals-split-container { border-radius: 8px; border: 1px solid #444; gap: 1px; background: #444; }
+.portal-half { background: #101010; min-width: 0; clip-path: none; }
+.portal-content { position: relative; z-index: 2; padding: 42px; }
+.portal-title { font-size: clamp(2rem,3vw,3.5rem); }
+.portal-bg-decor { opacity: .24; }
+.portal-smp .portal-bg-decor { background: repeating-linear-gradient(0deg,transparent 0 48px,#efff0040 49px 50px),repeating-linear-gradient(90deg,transparent 0 48px,#efff0040 49px 50px); transform: perspective(400px) rotateX(30deg) scale(1.5); }
+.portal-rp .portal-bg-decor { background: repeating-linear-gradient(90deg,#ffffff12 0 30px,transparent 30px 65px); clip-path: polygon(0 60%,12% 60%,12% 25%,25% 25%,25% 45%,40% 45%,40% 10%,54% 10%,54% 35%,70% 35%,70% 0,82% 0,82% 50%,100% 50%,100% 100%,0 100%); }
+.portal-rp .portal-title { color: white; -webkit-text-fill-color: white; }
+.preview-note { color: #b8b8b8; font: .8rem/1.6 var(--font-mono); margin-bottom: 24px; padding: 12px 16px; border-left: 2px solid var(--neon); background: #151515; }
+.featured-event-countdown { flex-wrap: wrap; }
+#countdown-status { flex: 0 0 100%; font: .75rem/1.6 var(--font-mono); max-width: 320px; color: #b8b8b8; }
+.discord-command-console,.events-featured-banner,.galaxy-card { background-color: #101010; border-radius: 8px; }
+.dropdown-menu { background: #111; }
+.nav-item-dropdown:focus-within .dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%); }
+:focus-visible { outline: 2px solid var(--neon); outline-offset: 5px; }
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 30000; padding: 15px; background: var(--neon); color: #080808; }
+.skip-link:focus { top: 15px; }
+.mobile-dock { display: none; }
+.modal-content { max-height: 85svh; overflow-y: auto; }
+.static-core::after { content: 'E'; position: absolute; top: 20%; right: 10%; font: 800 20rem var(--font-display); color: #efff0033; }
+@media(max-width:1100px) { .nav-menu { display: none; } }
+@media(max-width:1000px) {
+ .hero-content { width: 100%; max-width: 720px; }
+ .hero-section { background: linear-gradient(90deg,#080808ee,#08080899); }
+ .voltage-title { font-size: clamp(3.5rem,11vw,7rem); }
+ .portal-content { padding: 28px; }
+}
+@media(max-width:600px) {
+ .hero-section { padding: 130px 22px 100px; min-height: 90svh; }
+ .voltage-title { font-size: clamp(3rem,12vw,4.8rem); }
+ .hero-pill-badge { font-size: .56rem; }
+ .hero-description br { display: none; }
+ .hero-cta-group { gap: 12px; }
+ .hero-cta-group .btn { width: 100%; }
+ .voltage-strip { flex-direction: column; gap: 8px; text-align: center; }
+ .portal-content { padding: 25px 20px; }
+ .portal-status-tag { font-size: .6rem; }
+ .mobile-dock { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 600; padding: 12px 18px max(12px,env(safe-area-inset-bottom)); background: #101010f5; border-top: 1px solid #444; justify-content: space-around; }
+ .mobile-dock a { color: white; padding: 9px 20px; text-decoration: none; font-size: .85rem; }
+ .mobile-dock a:last-child { background: var(--neon); color: black; }
+ .site-footer { padding-bottom: 100px; }
+ .nav-actions .btn { display: none; }
+ .brand-text { font-size: 1rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+ *,*::before,*::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+ .liquid-cursor-dot,.liquid-cursor-aura,.liquid-morph-overlay { display: none; }
+ #webgl-canvas-container::after { content: 'E'; position: absolute; right: 5%; top: 20%; color: #efff0018; font: 800 22rem var(--font-display); }
+}
+@media(pointer:coarse) { .liquid-cursor-dot,.liquid-cursor-aura,.liquid-morph-overlay { display: none; } }
+.voltage-title { font-family: var(--font-heading); font-size: clamp(3.4rem,6.7vw,7.5rem); letter-spacing: -.075em; }
+@media(max-width:600px) { .voltage-title { font-size: clamp(2.8rem,11.4vw,4rem); } }
+.modal-overlay:not(.active) { visibility: hidden; }
+.galaxy-drawer:not(.active) { visibility: hidden; }
+/* Original E-World artwork, preserved at its native square aspect ratio. */
+.brand-logo { display: block; width: 72px; height: 72px; object-fit: contain; }
+.footer-brand .brand-logo { width: 140px; height: 140px; }
+.preloader-brand-logo { display: block; width: 180px; height: 180px; object-fit: contain; margin-bottom: 24px; }
+.gateway-brand-logo { display: block; width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
+@media(max-width:600px) { .brand-logo { width: 68px; height: 68px; } }
+/* Framed brand signature. */
+.nav-brand { gap: 16px; flex-shrink: 0; }
+.brand-art-frame { position: relative; display: grid; place-items: center; width: 72px; height: 72px; flex-shrink: 0; border: 1px solid #efff0040; background: #111; box-shadow: 0 0 24px #efff0010; }
+.brand-art-frame::before,.brand-art-frame::after { content: ''; position: absolute; width: 12px; height: 12px; pointer-events: none; z-index: 1; }
+.brand-art-frame::before { top: -1px; left: -1px; border-top: 2px solid var(--neon); border-left: 2px solid var(--neon); }
+.brand-art-frame::after { bottom: -1px; right: -1px; border-bottom: 2px solid var(--neon); border-right: 2px solid var(--neon); }
+.brand-logo { width: 100%; height: 100%; object-fit: contain; }
+.brand-lockup { display: flex; flex-direction: column; gap: 7px; }
+.brand-wordmark { font: 800 25px/1 var(--font-logo); letter-spacing: -.055em; color: #fff; }
+.brand-period { color: var(--neon); }
+.brand-caption { font: 500 7px/1.4 var(--font-mono); letter-spacing: .13em; color: #b8b8b8; }
+.site-navbar { height: 96px; }
+.site-navbar::after { content: ''; position: absolute; bottom: -1px; left: 4%; width: 220px; height: 2px; background: linear-gradient(90deg,var(--neon),transparent); }
+.nav-menu { gap: 16px; }
+.nav-link { font-size: .82rem; }
+.nav-actions { gap: 12px; }
+.footer-brand .nav-brand { flex-wrap: wrap; }
+.footer-brand .brand-art-frame { width: 144px; height: 144px; }
+.footer-brand .brand-logo { width: 100%; height: 100%; }
+.footer-brand .brand-wordmark { font-size: 28px; }
+.boot-brand-frame { position: relative; border: 1px solid #efff0050; padding: 12px; margin-bottom: 24px; box-shadow: 0 0 90px #efff0018; }
+.boot-brand-frame::before { content: 'E-W / ENTER THE UNIVERSE'; position: absolute; left: 0; bottom: -18px; font: 8px var(--font-mono); letter-spacing: .2em; color: var(--neon); }
+.preloader-brand-logo { width: 230px; height: 230px; margin: 0; }
+.nav-brand:hover .brand-art-frame { border-color: var(--neon); box-shadow: 0 0 25px #efff0025; }
+@media(max-width:1250px) { .nav-menu { display: none; } }
+@media(max-width:600px) {
+ .site-navbar { height: 90px; }
+ .nav-brand { gap: 12px; }
+ .brand-art-frame { width: 64px; height: 64px; }
+ .brand-logo { width: 100%; height: 100%; }
+ .brand-wordmark { font-size: 21px; }
+ .brand-caption { font-size: 6px; letter-spacing: .06em; }
+ .nav-actions { gap: 0; }
+ .nav-container { gap: 8px; }
+ .brand-lockup { gap: 6px; }
+}
+@media(max-width:360px) { .brand-caption { display: none; } .brand-wordmark { font-size: 18px; } }
+

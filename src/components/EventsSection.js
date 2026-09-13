@@ -3,15 +3,14 @@ import { soundManager } from '../audio/soundManager.js';
 
 export function initEventsSection() {
   // 1. Live Countdown Timer for Featured Event (CODM Championship)
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 3);
-  targetDate.setHours(18, 0, 0, 0);
+  const featured = upcomingEvents.find(event => event.featured);
+  const targetDate = new Date(featured.startsAt);
 
   function updateCountdown() {
     const now = new Date().getTime();
-    const distance = targetDate.getTime() - now;
+    const distance = Math.max(0, targetDate.getTime() - now);
 
-    if (distance < 0) return;
+    if (distance === 0) document.getElementById('countdown-status').textContent = 'Sample start date has passed. Await confirmed schedule.';
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -55,7 +54,7 @@ export function initEventsSection() {
             <div class="event-card-header">
               <span class="badge ${badgeClass}">${ev.categoryLabel}</span>
               <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid var(--chrome-border);">
-                ${ev.status}
+                DEMO
               </span>
             </div>
             <h3 class="event-card-title">${ev.title}</h3>
@@ -109,7 +108,7 @@ export function initEventsSection() {
             ${ev.rules.map((r) => `<li>${r}</li>`).join('')}
           </ul>
           <div style="display: flex; justify-content: flex-end; gap: 1rem;">
-            <a href="#discord-cta" class="btn btn-primary register-cta-btn">Register in Discord</a>
+            <a href="#discord-cta" class="btn btn-primary register-cta-btn">Check Announcements in Discord</a>
           </div>
         </div>
       `;
@@ -133,5 +132,6 @@ export function initEventsSection() {
     });
   });
 
+  document.getElementById('featured-rules-btn')?.addEventListener('click', (event) => { event.preventDefault(); openEventModal(featured); });
   renderEvents('all');
 }

@@ -14,9 +14,9 @@ export class ParticleField {
     const colors = new Float32Array(this.particleCount * 3);
     const scales = new Float32Array(this.particleCount);
 
-    const cyan = new THREE.Color(0x00f0ff);
-    const emerald = new THREE.Color(0x00ffa3);
-    const crimson = new THREE.Color(0xff3366);
+    const cyan = new THREE.Color(0xefff00);
+    const emerald = new THREE.Color(0xefff00);
+    const crimson = new THREE.Color(0xefff00);
     const white = new THREE.Color(0xe2e8f0);
 
     for (let i = 0; i < this.particleCount; i++) {
@@ -50,7 +50,7 @@ export class ParticleField {
     const ctx = canvas.getContext('2d');
     const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
     grad.addColorStop(0, 'rgba(255,255,255,1)');
-    grad.addColorStop(0.3, 'rgba(0,240,255,0.7)');
+    grad.addColorStop(0.3, 'rgba(239, 255, 0,0.7)');
     grad.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 32, 32);
@@ -72,11 +72,11 @@ export class ParticleField {
     // 2. Liquid Reflective Grid Surface Below Core (y = -4)
     const gridGeo = new THREE.PlaneGeometry(60, 60, 40, 40);
     const gridMat = new THREE.MeshStandardMaterial({
-      color: 0x050811,
+      color: 0x080808,
       roughness: 0.1,
       metalness: 0.95,
       wireframe: true,
-      emissive: 0x002233,
+      emissive: 0x080808,
       emissiveIntensity: 0.3,
       transparent: true,
       opacity: 0.25

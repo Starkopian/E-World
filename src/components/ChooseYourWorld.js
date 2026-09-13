@@ -45,14 +45,14 @@ export function initChooseYourWorld() {
             SYSTEM PROTOCOL: IN DEVELOPMENT
           </div>
           <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
-            The dimensional gateway to <strong>${worldName}</strong> (${game}) is currently undergoing final stress testing and alpha shader synchronization.
+            The dimensional gateway to <strong>${worldName}</strong> (${game}) is in development. Launch timing and access requirements will be announced by the community team.
           </p>
           <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--chrome-border); border-radius: 12px; padding: 1rem; font-family: var(--font-mono); font-size: 0.85rem;">
             ${details}
           </div>
         </div>
         <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-          <a href="#discord-cta" class="btn btn-primary close-modal-trigger" style="font-size: 0.85rem; padding: 0.6rem 1.4rem;">Get Early Alpha Access on Discord</a>
+          <a href="#discord-cta" class="btn btn-primary close-modal-trigger" style="font-size: 0.85rem; padding: 0.6rem 1.4rem;">Follow Launch Updates on Discord</a>
         </div>
       `;
       modal.classList.add('active');
@@ -73,7 +73,7 @@ export function initChooseYourWorld() {
       showPortalNotification(
         'E-World SMP',
         'Minecraft Java 1.21',
-        '<div><strong>Expected Gateway:</strong> Q3 2026</div><div><strong>Features:</strong> Custom World Gen • Lore Bosses • Dynmap • Anti-Grief</div>'
+        '<div><strong>Launch:</strong> To be announced</div><div><strong>Features:</strong> Custom World Gen • Lore Bosses • Dynmap • Anti-Grief</div>'
       );
     });
   }
@@ -84,7 +84,7 @@ export function initChooseYourWorld() {
       showPortalNotification(
         'E-World RP',
         'FiveM GTA V',
-        '<div><strong>Expected Gateway:</strong> Q4 2026</div><div><strong>Features:</strong> Custom Economy • Real Estate • Custom Vehicles • Strict RP</div>'
+        '<div><strong>Launch:</strong> To be announced</div><div><strong>Features:</strong> Custom Economy • Real Estate • Custom Vehicles • Strict RP</div>'
       );
     });
   }

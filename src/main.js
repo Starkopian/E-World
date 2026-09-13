@@ -1,20 +1,13 @@
 import { SceneManager } from './webgl/SceneManager.js';
-import { initLoader } from './components/Loader.js';
 import { initLiquidCursor } from './components/LiquidCursor.js';
-import { initNavbar } from './components/Navbar.js';
-import { initHeroSection } from './components/HeroSection.js';
-import { initChooseYourWorld } from './components/ChooseYourWorld.js';
-import { initCommunityGalaxy } from './components/CommunityGalaxy.js';
-import { initLiveActivity } from './components/LiveActivity.js';
-import { initShowcase } from './components/Showcase.js';
-import { initEventsSection } from './components/EventsSection.js';
-import { initCreatorSpotlight } from './components/CreatorSpotlight.js';
-import { initTimeline } from './components/Timeline.js';
-import { initTeamSection } from './components/TeamSection.js';
-import { initDiscordCTA } from './components/DiscordCTA.js';
+import { initHUD } from './components/HUD.js';
+import { initUniverseFlow } from './components/UniverseFlow.js';
+import { initIndexMatrix } from './components/IndexMatrix.js';
+import { initLiquidDetailModal } from './components/LiquidDetailModal.js';
+import { soundManager } from './audio/soundManager.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize WebGL 3D Background Engine
+  // 1. Initialize WebGL 3D Canvas Scene
   const canvasContainer = document.getElementById('webgl-canvas-container');
   let sceneManager = null;
   if (canvasContainer) {
@@ -22,52 +15,49 @@ document.addEventListener('DOMContentLoaded', () => {
     sceneManager.start();
   }
 
-  // 2. Initialize Liquid Magnetic Cursor & Spatial Tilt
-  const cursorEngine = initLiquidCursor();
+  // 2. Initialize Liquid Magnetic Cursor
+  initLiquidCursor();
 
-  // 3. Initialize Navbar & Environmental Atmosphere
-  initNavbar();
+  // 3. Initialize Liquid Detail Modal
+  const { openDetail } = initLiquidDetailModal();
 
-  // 4. Initialize Hero Holographic Typography
-  initHeroSection();
+  // 4. Mode Switch Handlers (Universe 3D vs Index Matrix)
+  const universeViewport = document.getElementById('universe-viewport');
+  const matrixViewport = document.getElementById('matrix-viewport');
 
-  // 5. Initialize Choose Your World Portals (SMP & RP)
-  initChooseYourWorld();
-
-  // 6. Initialize Community Galaxy Node Network
-  initCommunityGalaxy();
-
-  // 7. Initialize Live Telemetry & Event Ticker
-  initLiveActivity();
-
-  // 8. Initialize Showcase Perspective Gallery & Number Counters
-  initShowcase();
-
-  // 9. Initialize Events Matrix & Live Countdown
-  initEventsSection();
-
-  // 10. Initialize Creator Spotlight & Application System
-  initCreatorSpotlight();
-
-  // 11. Initialize Draggable History Timeline
-  initTimeline();
-
-  // 12. Initialize Staff Council Matrix
-  initTeamSection();
-
-  // 13. Initialize Discord Command Console
-  initDiscordCTA();
-
-  // Re-attach cursor interactivity after dynamic elements render
-  if (cursorEngine && cursorEngine.attachInteractivity) {
-    cursorEngine.attachInteractivity();
+  function handleModeToggle(mode) {
+    if (mode === 'universe') {
+      matrixViewport.classList.remove('active');
+      universeViewport.classList.remove('hidden');
+    } else {
+      universeViewport.classList.add('hidden');
+      matrixViewport.classList.add('active');
+    }
   }
 
-  // 14. Initialize Preloader
-  initLoader(() => {
-    // Post-boot adjustments
-    if (cursorEngine && cursorEngine.attachInteractivity) {
-      cursorEngine.attachInteractivity();
-    }
+  // 5. Initialize HUD Framing, Live UTC Clock & Audio Spectrum
+  let universeFlow = null;
+  const hud = initHUD(
+    (targetSceneIndex) => {
+      if (universeFlow) {
+        universeFlow.goToScene(targetSceneIndex);
+      }
+    },
+    handleModeToggle
+  );
+
+  // 6. Initialize Spatial 3D Universe Flow
+  universeFlow = initUniverseFlow(sceneManager, hud, (item) => {
+    openDetail(item);
   });
+
+  // 7. Initialize Technical Index Matrix
+  initIndexMatrix((item) => {
+    openDetail(item);
+  });
+
+  // Auto-init audio on first user gesture
+  window.addEventListener('click', () => {
+    soundManager.ensureContext();
+  }, { once: true });
 });

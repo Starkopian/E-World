@@ -50,7 +50,7 @@ export function initNavbar() {
       const r = chooseWorldSec.getBoundingClientRect();
       if (r.top <= windowH / 2 && r.bottom >= windowH / 2) {
         // Shift to emerald / crimson duality
-        ambientLayer.style.background = 'radial-gradient(circle at 30% 40%, rgba(0, 255, 163, 0.12) 0%, rgba(255, 51, 102, 0.1) 60%, transparent 80%)';
+        ambientLayer.style.background = 'radial-gradient(circle at 30% 40%, rgba(239, 255, 0, 0.12) 0%, rgba(239, 255, 0, 0.1) 60%, transparent 80%)';
         return;
       }
     }
@@ -59,7 +59,7 @@ export function initNavbar() {
       const r = galaxySec.getBoundingClientRect();
       if (r.top <= windowH / 2 && r.bottom >= windowH / 2) {
         // Celestial purple/blue
-        ambientLayer.style.background = 'radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.16) 0%, rgba(0, 240, 255, 0.08) 50%, transparent 75%)';
+        ambientLayer.style.background = 'radial-gradient(circle at 50% 50%, rgba(239, 255, 0, 0.16) 0%, rgba(239, 255, 0, 0.08) 50%, transparent 75%)';
         return;
       }
     }
@@ -68,12 +68,12 @@ export function initNavbar() {
       const r = (liveSec || eventsSec).getBoundingClientRect();
       if (r.top <= windowH / 2 && r.bottom >= windowH / 2) {
         // Electric cyber cyan
-        ambientLayer.style.background = 'radial-gradient(circle at 50% 40%, rgba(0, 240, 255, 0.14) 0%, rgba(0, 102, 255, 0.06) 60%, transparent 80%)';
+        ambientLayer.style.background = 'radial-gradient(circle at 50% 40%, rgba(239, 255, 0, 0.14) 0%, rgba(239, 255, 0, 0.06) 60%, transparent 80%)';
         return;
       }
     }
 
     // Default Hero Atmosphere: Deep graphite / subtle cyan
-    ambientLayer.style.background = 'radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 65%)';
+    ambientLayer.style.background = 'radial-gradient(circle at 50% 30%, rgba(239, 255, 0, 0.08) 0%, transparent 65%)';
   }
 }
