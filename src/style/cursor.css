@@ -1,0 +1,98 @@
+/* ==========================================================================
+   E-WORLD DIGITAL UNIVERSE - LIQUID CURSOR & SPATIAL INTERACTION
+   ========================================================================== */
+
+/* Hide standard cursor on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: default;
+  }
+}
+
+/* Fluid Liquid Cursor Elements */
+.liquid-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s var(--ease-fluid), height 0.2s var(--ease-fluid), background-color 0.2s;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.liquid-cursor-aura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(0, 240, 255, 0.6);
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-fluid), height 0.3s var(--ease-fluid), border-color 0.3s, background 0.3s, transform 0.15s ease-out;
+}
+
+/* Hover States */
+body.cursor-hovering .liquid-cursor-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--cyan-primary);
+  box-shadow: 0 0 15px var(--cyan-primary);
+}
+
+body.cursor-hovering .liquid-cursor-aura {
+  width: 64px;
+  height: 64px;
+  border-color: rgba(0, 240, 255, 0.9);
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.25) 0%, transparent 75%);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+}
+
+/* SMP Portal Hover State */
+body.cursor-hovering-smp .liquid-cursor-aura {
+  border-color: rgba(0, 255, 163, 0.9);
+  background: radial-gradient(circle, rgba(0, 255, 163, 0.25) 0%, transparent 75%);
+  box-shadow: 0 0 25px rgba(0, 255, 163, 0.4);
+}
+
+/* RP Portal Hover State */
+body.cursor-hovering-rp .liquid-cursor-aura {
+  border-color: rgba(255, 51, 102, 0.9);
+  background: radial-gradient(circle, rgba(255, 51, 102, 0.25) 0%, transparent 75%);
+  box-shadow: 0 0 25px rgba(255, 51, 102, 0.4);
+}
+
+/* Fullscreen Liquid Morph Screen Transition Overlay */
+.liquid-morph-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.95) 0%, #050608 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.85s cubic-bezier(0.85, 0, 0.15, 1), height 0.85s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.4s ease;
+}
+
+.liquid-morph-overlay.expanding {
+  width: 300vmax;
+  height: 300vmax;
+  opacity: 1;
+}
+
+.liquid-morph-overlay.fading {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
