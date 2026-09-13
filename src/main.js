@@ -1,7 +1,7 @@
 import { SceneManager } from './webgl/SceneManager.js';
 import { initLiquidCursor } from './components/LiquidCursor.js';
 import { initHUD } from './components/HUD.js';
-import { initUniverseFlow } from './components/UniverseFlow.js';
+import { initTreeScroll } from './components/TreeScroll.js';
 import { initIndexMatrix } from './components/IndexMatrix.js';
 import { initLiquidDetailModal } from './components/LiquidDetailModal.js';
 import { soundManager } from './audio/soundManager.js';
@@ -21,33 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Initialize Liquid Detail Modal
   const { openDetail } = initLiquidDetailModal();
 
-  // 4. Mode Switch Handlers (Universe 3D vs Index Matrix)
-  const universeViewport = document.getElementById('universe-viewport');
+  // 4. Mode Switch Handlers (Tree Scroll vs Index Matrix)
+  const treeViewport = document.getElementById('tree-viewport');
   const matrixViewport = document.getElementById('matrix-viewport');
 
   function handleModeToggle(mode) {
-    if (mode === 'universe') {
+    if (mode === 'tree') {
       matrixViewport.classList.remove('active');
-      universeViewport.classList.remove('hidden');
+      treeViewport.classList.remove('hidden');
     } else {
-      universeViewport.classList.add('hidden');
+      treeViewport.classList.add('hidden');
       matrixViewport.classList.add('active');
     }
   }
 
   // 5. Initialize HUD Framing, Live UTC Clock & Audio Spectrum
-  let universeFlow = null;
+  let treeScroll = null;
   const hud = initHUD(
-    (targetSceneIndex) => {
-      if (universeFlow) {
-        universeFlow.goToScene(targetSceneIndex);
+    (targetIndex) => {
+      if (treeScroll) {
+        treeScroll.scrollToNode(targetIndex);
       }
     },
     handleModeToggle
   );
 
-  // 6. Initialize Spatial 3D Universe Flow
-  universeFlow = initUniverseFlow(sceneManager, hud, (item) => {
+  // 6. Initialize Vertical Branching Tree Scroll
+  treeScroll = initTreeScroll(sceneManager, hud, (item) => {
     openDetail(item);
   });
 

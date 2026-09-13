@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>E-WORLD · Creative Digital Realms</title>
-  <meta name="description" content="E-World is a creative digital universe blending story, technology, and gaming realms across Minecraft SMP, FiveM RP, and sanctioned esports leagues." />
+  <meta name="description" content="E-World is a creative digital universe branching across Minecraft SMP, FiveM RP, and sanctioned esports leagues." />
 
   <!-- Favicon / SVG Icon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌌</text></svg>" />
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="./src/style/base.css" />
   <link rel="stylesheet" href="./src/style/components.css" />
   <link rel="stylesheet" href="./src/style/hud.css" />
-  <link rel="stylesheet" href="./src/style/universe.css" />
+  <link rel="stylesheet" href="./src/style/tree.css" />
   <link rel="stylesheet" href="./src/style/matrix.css" />
   <link rel="stylesheet" href="./src/style/cursor.css" />
 </head>
@@ -55,7 +55,7 @@
     <!-- Right Controls: View Switcher & Audio Visualizer -->
     <div class="at-header-right">
       <div class="at-mode-switcher">
-        <button class="at-mode-btn active" data-mode="universe">UNIVERSE [3D]</button>
+        <button class="at-mode-btn active" data-mode="tree">TREE [SCROLL]</button>
         <button class="at-mode-btn" data-mode="matrix">INDEX [LIST]</button>
       </div>
 
@@ -75,15 +75,17 @@
     </div>
   </header>
 
-  <!-- MODE 1: ACTIVE THEORY SPATIAL 3D UNIVERSE FLOW -->
-  <main id="universe-viewport" class="universe-viewport">
-    <div id="universe-slider" class="universe-slider">
-      <!-- Injected by UniverseFlow.js -->
-    </div>
+  <!-- MODE 1: VERTICAL BRANCHING TREE SCROLL VIEWPORT -->
+  <main id="tree-viewport" class="tree-viewport">
+    <div class="tree-container">
+      <!-- Central Glowing Energy Trunk Line -->
+      <div class="tree-trunk-line-bg"></div>
+      <div id="tree-trunk-progress" class="tree-trunk-line-progress"></div>
 
-    <!-- Bottom Center Drag / Wheel Hint -->
-    <div class="universe-nav-hint">
-      <span>← DRAG OR WHEEL SCRUB TO TRAVEL →</span>
+      <!-- Injected Branch Nodes -->
+      <div id="tree-nodes-container">
+        <!-- Injected dynamically by TreeScroll.js -->
+      </div>
     </div>
   </main>
 
@@ -134,13 +136,13 @@
 
     <!-- Center Pagination Scrub Dots -->
     <div class="at-footer-center">
-      <div class="at-scrub-dot active" data-index="0" title="Scene 01: Nexus"></div>
-      <div class="at-scrub-dot" data-index="1" title="Scene 02: SMP"></div>
-      <div class="at-scrub-dot" data-index="2" title="Scene 03: RP"></div>
-      <div class="at-scrub-dot" data-index="3" title="Scene 04: Galaxy"></div>
-      <div class="at-scrub-dot" data-index="4" title="Scene 05: Esports"></div>
-      <div class="at-scrub-dot" data-index="5" title="Scene 06: Creators"></div>
-      <div class="at-scrub-dot" data-index="6" title="Scene 07: Gateway"></div>
+      <div class="at-scrub-dot active" data-index="0" title="Node 01: Nexus Root"></div>
+      <div class="at-scrub-dot" data-index="1" title="Node 02: SMP Branch"></div>
+      <div class="at-scrub-dot" data-index="2" title="Node 03: RP Branch"></div>
+      <div class="at-scrub-dot" data-index="3" title="Node 04: Galaxy Junction"></div>
+      <div class="at-scrub-dot" data-index="4" title="Node 05: Esports Branch"></div>
+      <div class="at-scrub-dot" data-index="5" title="Node 06: Creators Branch"></div>
+      <div class="at-scrub-dot" data-index="6" title="Node 07: Apex Gateway"></div>
     </div>
 
     <div class="at-footer-right">

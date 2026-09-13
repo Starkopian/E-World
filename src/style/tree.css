@@ -1,0 +1,259 @@
+/* ==========================================================================
+   E-WORLD DIGITAL UNIVERSE - VERTICAL BRANCHING TREE SCROLL STYLING
+   ========================================================================== */
+
+.tree-viewport {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 10;
+  overflow-x: hidden;
+  padding: 120px 0 160px;
+  transition: opacity 0.5s var(--ease-fluid), transform 0.5s var(--ease-fluid);
+}
+
+.tree-viewport.hidden {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+.tree-container {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Central Glowing Energy Trunk Line */
+.tree-trunk-line-bg {
+  position: absolute;
+  top: 100px;
+  bottom: 100px;
+  left: 50%;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tree-trunk-line-progress {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  width: 2px;
+  height: 0%;
+  background: linear-gradient(180deg, var(--cyan-primary) 0%, var(--emerald-smp) 40%, var(--crimson-rp) 70%, var(--violet-celestial) 100%);
+  box-shadow: 0 0 12px var(--cyan-primary), 0 0 24px var(--cyan-glow);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 2;
+  transition: height 0.1s linear;
+}
+
+/* Individual Branch Node Rows */
+.tree-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 220px;
+  min-height: 480px;
+  z-index: 5;
+}
+
+.tree-node:last-child {
+  margin-bottom: 60px;
+}
+
+/* Node Placements: Root, Left Branch, Right Branch, Center */
+.tree-node-root {
+  justify-content: center;
+  text-align: center;
+}
+
+.tree-node-left {
+  justify-content: flex-start;
+}
+
+.tree-node-right {
+  justify-content: flex-end;
+}
+
+.tree-node-center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Central Bud / Junction Marker */
+.tree-junction-marker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #080b12;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  transition: all 0.4s var(--ease-fluid);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.tree-junction-core {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: all 0.4s var(--ease-fluid);
+}
+
+.tree-node.active .tree-junction-marker {
+  border-color: var(--cyan-primary);
+  box-shadow: 0 0 25px var(--cyan-primary);
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.tree-node.active .tree-junction-core {
+  background: var(--cyan-primary);
+  box-shadow: 0 0 10px var(--cyan-primary);
+}
+
+/* Connecting Curved Branch Line */
+.tree-branch-arm {
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.5), rgba(255, 255, 255, 0.1));
+  z-index: 3;
+  pointer-events: none;
+}
+
+.tree-node-left .tree-branch-arm {
+  left: calc(48% - 60px);
+  width: 80px;
+  transform: translateY(-50%);
+  background: linear-gradient(270deg, var(--cyan-primary), transparent);
+}
+
+.tree-node-right .tree-branch-arm {
+  right: calc(48% - 60px);
+  width: 80px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, var(--cyan-primary), transparent);
+}
+
+/* Branch Content Cards */
+.tree-card-box {
+  max-width: 520px;
+  width: 100%;
+  background: rgba(12, 16, 24, 0.72);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--chrome-border);
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.5s var(--ease-fluid);
+}
+
+.tree-card-box:hover {
+  border-color: var(--cyan-primary);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 35px var(--cyan-glow);
+}
+
+.tree-node-root .tree-card-box,
+.tree-node-center .tree-card-box {
+  max-width: 760px;
+}
+
+/* Card Editorial Typography */
+.tree-node-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--cyan-primary);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.tree-node-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.tree-node-subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.tree-node-desc {
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.tree-telemetry-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.tree-telemetry-item strong {
+  color: #ffffff;
+}
+
+.tree-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .tree-trunk-line-bg, .tree-trunk-line-progress {
+    left: 24px;
+    transform: none;
+  }
+  .tree-junction-marker {
+    left: 24px;
+    transform: translate(-50%, -50%);
+  }
+  .tree-node {
+    justify-content: flex-start !important;
+    padding-left: 50px;
+    margin-bottom: 120px;
+  }
+  .tree-branch-arm {
+    display: none;
+  }
+  .tree-card-box {
+    max-width: 100% !important;
+    padding: 28px;
+  }
+}
